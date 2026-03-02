@@ -15,15 +15,25 @@
             </ul>
         </div>
 
-        <form class="contact-form" action="#" method="post">
+        <form class="contact-form" action="{{ url_for('contact') }}" method="post">
+            {% if form_success %}
+            <p class="alert alert-success">{{ form_success }}</p>
+            {% endif %}
+            {% if form_error %}
+            <p class="alert alert-error">{{ form_error }}</p>
+            {% endif %}
+
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" required>
+            <input id="name" name="name" type="text" value="{{ form_data.name }}" required>
 
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" required>
+            <input id="email" name="email" type="email" value="{{ form_data.email }}" required>
+
+            <label for="phone">Phone Number (Optional)</label>
+            <input id="phone" name="phone" type="tel" value="{{ form_data.phone }}">
 
             <label for="message">Project Details</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <textarea id="message" name="message" rows="5" required>{{ form_data.message }}</textarea>
 
             <button type="submit">Send Message</button>
         </form>

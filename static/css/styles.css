@@ -159,6 +159,25 @@ body {
     gap: 0.5rem;
 }
 
+.alert {
+    margin: 0 0 0.4rem;
+    border-radius: 8px;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.94rem;
+}
+
+.alert-success {
+    border: 1px solid #9ad3bc;
+    background: #ecfaf3;
+    color: #216648;
+}
+
+.alert-error {
+    border: 1px solid #efb8b8;
+    background: #fff1f1;
+    color: #8f2121;
+}
+
 input,
 textarea,
 button {

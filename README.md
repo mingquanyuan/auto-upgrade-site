@@ -49,6 +49,41 @@ python app.py
 
 Open: `http://127.0.0.1:5000`
 
+## Cosmos DB Configuration
+
+The contact form backend stores submitted entries in Azure Cosmos DB.
+Set these environment variables before running:
+
+- `COSMOS_ENDPOINT`
+- `COSMOS_KEY`
+- `COSMOS_DATABASE_NAME`
+- `COSMOS_CONTAINER_NAME`
+
+Example:
+
+```bash
+export COSMOS_ENDPOINT="https://<account>.documents.azure.com:443/"
+export COSMOS_KEY="<primary-or-secondary-key>"
+export COSMOS_DATABASE_NAME="auto-upgrade-db"
+export COSMOS_CONTAINER_NAME="contact-submissions"
+```
+
+### Partition key design (important)
+
+Use container partition key path: `/pk`
+
+Current contact submissions are written with:
+
+- `pk = "public#<normalized-email>"`
+
+Why this works for future portals:
+
+- Keeps related records for the same actor in one logical partition.
+- Supports high cardinality (better scale than low-cardinality keys like `portal` only).
+- Extends cleanly for future writes:
+  - Employee portal: `pk = "employee#<employee-id>"`
+  - Admin portal: `pk = "admin#<admin-id>"`
+
 ## Azure App Service Deployment
 
 This repo is ready for Azure App Service (Linux, Python).
