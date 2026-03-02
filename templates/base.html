@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Auto Upgrade Shop{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a href="{{ url_for('home') }}" class="brand">AutoUpgrade Garage</a>
+            <nav class="nav-links">
+                <a href="{{ url_for('home') }}" class="{% if page == 'home' %}active{% endif %}">Home</a>
+                <a href="{{ url_for('about') }}" class="{% if page == 'about' %}active{% endif %}">About Us</a>
+                <a href="{{ url_for('services') }}" class="{% if page == 'services' %}active{% endif %}">Services</a>
+                <a href="{{ url_for('contact') }}" class="{% if page == 'contact' %}active{% endif %}">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 AutoUpgrade Garage. Built for performance upgrades and custom tuning.</p>
+        </div>
+    </footer>
+</body>
+</html>

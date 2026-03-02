@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | AutoUpgrade Garage{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Upgrade Your Ride With Expert Performance Mods</h1>
+        <p>From daily drivers to track builds, we deliver precision tuning and premium upgrades that unlock your car's full potential.</p>
+        <a href="{{ url_for('services') }}" class="button">Explore Services</a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container grid three-col">
+        <article class="card">
+            <h2>Performance Tuning</h2>
+            <p>Custom ECU and dyno tuning for cleaner power delivery and optimized fuel maps.</p>
+        </article>
+        <article class="card">
+            <h2>Suspension Setup</h2>
+            <p>Street and track-oriented suspension upgrades for sharper handling and ride control.</p>
+        </article>
+        <article class="card">
+            <h2>Exhaust & Intake</h2>
+            <p>High-flow systems engineered to improve response, sound, and horsepower gains.</p>
+        </article>
+    </div>
+</section>
+{% endblock %}

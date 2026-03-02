@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us | AutoUpgrade Garage{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container contact-wrap">
+        <div>
+            <h1>Contact Us</h1>
+            <p>Ready to start your upgrade? Send us your vehicle details and goals, and we will build a custom plan.</p>
+            <ul class="contact-list">
+                <li><strong>Phone:</strong> (555) 014-9088</li>
+                <li><strong>Email:</strong> hello@autoupgradegarage.com</li>
+                <li><strong>Address:</strong> 210 Torque Ave, Austin, TX</li>
+            </ul>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
