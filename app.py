@@ -1,6 +1,9 @@
+import os
+
 from flask import Flask, render_template
 
 app = Flask(__name__)
+app.config["TEMPLATES_AUTO_RELOAD"] = os.getenv("FLASK_DEBUG", "").lower() in {"1", "true", "yes"}
 
 
 @app.route('/')
@@ -24,4 +27,6 @@ def contact():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    debug = os.getenv("FLASK_DEBUG", "").lower() in {"1", "true", "yes"}
+    port = int(os.getenv("PORT", "8000"))
+    app.run(host="0.0.0.0", port=port, debug=debug)
